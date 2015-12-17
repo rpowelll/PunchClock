@@ -319,6 +319,7 @@
 				ORGANIZATIONNAME = "Panic Inc.";
 				TargetAttributes = {
 					1A791DAC18442884000943E4 = {
+						DevelopmentTeam = VFJT3FX6NA;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -530,9 +531,12 @@
 			baseConfigurationReference = 0B80FF4B46B02D053612EDEF /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PunchClock/PunchClock-Prefix.pch";
 				INFOPLIST_FILE = "PunchClock/PunchClock-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bilue.PunchClock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -543,9 +547,12 @@
 			baseConfigurationReference = 09F295D1F09C9A231E43156E /* Pods.beta.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PunchClock/PunchClock-Prefix.pch";
 				INFOPLIST_FILE = "PunchClock/PunchClock-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bilue.PunchClock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
