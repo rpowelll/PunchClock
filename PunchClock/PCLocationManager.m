@@ -226,7 +226,7 @@
 	if (self.inRange) {
 		return  @"In";
 	} else if (self.nearOffice) {
-		if (self.officeDistanceValue <= 30) {
+		if (self.officeDistanceValue <= geoFenceRadius) {
 			return @"In";
 		} else {
 			return @"Near";
