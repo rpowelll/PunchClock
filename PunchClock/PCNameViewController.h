@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MZFormSheetController/MZFormSheetController.h>
 
-@interface PCNameViewController : MZFormSheetController <UITextFieldDelegate>
+@interface PCNameViewController : UIViewController <UITextFieldDelegate>
 
 @end

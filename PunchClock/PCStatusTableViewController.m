@@ -9,14 +9,13 @@
 #import "PCStatusTableViewController.h"
 #import "PCStatusTableDataSource.h"
 #import <AFNetworking/AFNetworking.h>
-#import <MZFormSheetController/MZFormSheetController.h>
-#import <MZFormSheetController/MZFormSheetSegue.h>
+#import <MZFormSheetPresentationController/MZFormSheetPresentationViewControllerSegue.h>
 #import "PCMessageFormViewController.h"
 #import "PCLocationManager.h"
 
 @import CoreLocation;
 
-@interface PCStatusTableViewController () <MZFormSheetBackgroundWindowDelegate, PCLocationManagerDelegate>
+@interface PCStatusTableViewController () <PCLocationManagerDelegate>
 
 @property (strong, nonatomic) IBOutlet UIButton *messageButton;
 
@@ -27,21 +26,24 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
 	if ([segue.identifier isEqualToString:@"messageFormSegue"]) {
-		MZFormSheetSegue *formSheetSegue = (MZFormSheetSegue *)segue;
-		MZFormSheetController *formSheet = formSheetSegue.formSheetController;
-		formSheet.transitionStyle = MZFormSheetTransitionStyleBounce;
-		formSheet.cornerRadius = 8.0;
-		formSheet.presentedFormSheetSize = CGSizeMake(284.0, 200.0);
-
-		formSheet.didTapOnBackgroundViewCompletionHandler = ^(CGPoint location) {
-			// Just dismiss it
-		};
-
-		formSheet.shouldDismissOnBackgroundViewTap = YES;
-
-		formSheet.didPresentCompletionHandler = ^(UIViewController *presentedFSViewController) {
-
-		};
+//		MZFormSheetSegue *formSheetSegue = (MZFormSheetSegue *)segue;
+//		MZFormSheetController *formSheet = formSheetSegue.formSheetController;
+//		formSheet.transitionStyle = MZFormSheetTransitionStyleBounce;
+//		formSheet.cornerRadius = 8.0;
+//		formSheet.presentedFormSheetSize = CGSizeMake(284.0, 200.0);
+//
+//		formSheet.didTapOnBackgroundViewCompletionHandler = ^(CGPoint location) {
+//			// Just dismiss it
+//		};
+//
+//		formSheet.shouldDismissOnBackgroundViewTap = YES;
+//
+//		formSheet.didPresentCompletionHandler = ^(UIViewController *presentedFSViewController) {
+//
+//		};
+        
+//        MZFormSheetPresentationViewControllerSegue *presentationSegue = (id)segue;
+//        presentationSegue.formSheetPresentationController.presentationController.shouldApplyBackgroundBlurEffect = YES;
 	}
 }
 
@@ -231,21 +233,21 @@
 																					 selector:@selector(refreshCompleted:)
 																							 name:@"StatusesUpdated"
 																						 object:nil];
-
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-	NSString *username = [defaults stringForKey:@"username"];
-
-	if ([username isEqualToString:@""]) {
-		[self performSegueWithIdentifier:@"missingNameStatus" sender:self];
-	}
-
-
-	[[MZFormSheetBackgroundWindow appearance] setBackgroundBlurEffect:YES];
-	[[MZFormSheetBackgroundWindow appearance] setBlurRadius:5.0];
-	[[MZFormSheetBackgroundWindow appearance] setBackgroundColor:[UIColor clearColor]];
 	
 	[[PCLocationManager sharedLocationManager] setDelegate:self];
 	
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *username = [defaults stringForKey:@"username"];
+    
+    if ([username isEqualToString:@""]) {
+        [self performSegueWithIdentifier:@"missingNameStatus" sender:self];
+    }
 }
 
 - (void)dealloc

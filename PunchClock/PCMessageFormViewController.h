@@ -7,8 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <MZFormSheetController/MZFormSheetController.h>
 
-@interface PCMessageFormViewController : MZFormSheetController
+@interface PCMessageFormViewController : UIViewController
 
 @end

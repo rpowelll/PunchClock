@@ -51,7 +51,7 @@
 		[[NSUserDefaults standardUserDefaults] setObject:textField.text forKey:@"username"];
 		[[NSUserDefaults standardUserDefaults] synchronize];
 
-		[self mz_dismissFormSheetControllerAnimated:YES completionHandler:nil];
+		[self dismissViewControllerAnimated:YES completion:nil];
 
 	}
 }

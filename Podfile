@@ -5,5 +5,5 @@ inhibit_all_warnings!
 pod 'AFNetworking', '~> 2.0'
 pod 'KeychainItemWrapper', '~> 1.2'
 pod 'ZeroPush', '~> 2.0'
-pod 'MZFormSheetController', '~> 2.3'
+pod 'MZFormSheetPresentationController', '~> 2.2'
 pod 'CocoaLumberjack', '~> 1.9'

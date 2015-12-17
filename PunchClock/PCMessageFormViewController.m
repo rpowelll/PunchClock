@@ -25,7 +25,7 @@
 
 - (IBAction)cancelButtonTapped:(id)sender
 {
-	[self mz_dismissFormSheetControllerAnimated:YES completionHandler:nil];
+	[self dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -54,7 +54,7 @@
 
 		DDLogDebug(@"Response: %@", responseObject);
 		[self.messageTextField resignFirstResponder];
-		[self mz_dismissFormSheetControllerAnimated:YES completionHandler:nil];
+		[self dismissViewControllerAnimated:YES completion:nil];
 
 		[self setSendButtonEnabled:NO];
 
